@@ -1,0 +1,37 @@
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<div id="review-slider">
+  <% revdom.each do |review| %>
+    <div class="review-slider-item">
+      <div class="user-info">
+        <%= link_to review.user do %>
+          <%= attachment_image_tag review.user, :profile_image, size: "50x50", format: 'jpg', fallback: "no_image.jpg", class: "rounded-circle" %>
+        <% end %>
+        <p class="review-user-path">
+          <%= link_to user_path(review.user.id) do %>
+            <p><%= review.user.name %></p>
+          <% end %>
+        </p>
+        <p class="date"><%= review.created_at.strftime('%Y/%m/%d') %></p>
+      </div>
+      <div class="comic-info">
+        <%= link_to comic_path(review.comic) do %>
+          <div class="reviews-comic">
+            <p><%= image_tag review.comic.image_url, :size => "66x90" %></p>
+            <h6 class="review-comic-title"><%= review.comic.title %></h6>
+          </div>
+        <%end %>
+      </div>
+      <div class="review-info">
+        <div class="reviews-content">
+
+          <h4 class="rate-number mb-3">評価：<%= review.rate %>点</h4>
+
+          <!--星評価-->
+          <%= render 'public/reviews/rev_star', review: review %>
+
+        </div>
+      </div>
+
+    </div>
+  <% end %>
+</div>

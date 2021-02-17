@@ -1,0 +1,40 @@
+<div class="col-md-3 new-comment">
+   <!--コメント数-->
+  <p class="">
+      <i class="far fa-comment-alt comment-counter"><%= review.comments.count %></i>
+  </p>
+  <!--コメント入力フォーム-->
+  <p class="comments-create">
+    <%= form_with model: comment, url: comic_review_comments_path(review_id: review.id), method: :post, remote: true do |f| %>
+      <p><%= f.text_area :comment, rows: '5', placeholder: "コメント欄" %></p>
+      <p><%= f.submit "コメントする", class: "btn btn-outline-secondary" %></p>
+    <% end %>
+  </p>
+</div>
+<div class="col-md-7" id="comments_area">
+ <!--コメント一覧-->
+  <% review.comments.each do |comment| %>
+    <div class="row comments">
+      <div class="col-sm-4">
+        <%= link_to comment.user do %>
+          <p>
+            <%= attachment_image_tag comment.user, :profile_image, size: "50x50", format: 'jpg', fallback: "no_image.jpg", class: "rounded-circle" %>
+          </p>
+          <p><%= comment.user.name %></p>
+        <% end %>
+      </div>
+      <div class="col-sm-4">
+        <p>
+          <%= comment.comment %>
+          <%= comment.created_at.strftime('%Y/%m/%d') %>
+        </p>
+        <!--コメント削除ボタン-->
+        <% if comment.user == current_user %>
+          <p class="comment-delete">
+            <%= link_to "削除", comic_review_comment_path(id: comment.id, review_id: comment.review.id), method: :delete, remote: true, class: "btn btn-outline-danger btn-sm" %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

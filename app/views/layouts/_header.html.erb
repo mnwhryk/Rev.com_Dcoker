@@ -1,0 +1,118 @@
+<header class="header">
+  <nav class="navbar navbar-expand-lg ">
+    <buttun class="navbar-toggler" type="buttun" data-toggle="collapse" data-target="#navbarVavDropdown" aria-controls="nabarNavDropdown" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </buttun>
+
+    <div class="collapse navbar-collapse text-light" id="navbarNavDropdown">
+
+      <ul class="navbar-nav">
+
+        <!-- userがログイン時-->
+        <% if user_signed_in? %>
+        <p>
+          <%= link_to root_path do %>
+            <p class="head-logo"><%= image_tag 'Rev.com-logo-2.png', :size => "100x100" %></p>
+          <% end %>
+        </p>
+        <div class="collapse navbar-collapse justify-content-end ">
+          <ul class="head-path-box">
+            <li class="nav-item">
+              <%= link_to homes_about_path do %>
+                <p class="user-head-path">Rev.comとは？</p>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to user_path(current_user) do %>
+                <p class="user-img-path">
+                  <!--Mypage-->
+                  <%= attachment_image_tag current_user, :profile_image, size: "50x50", format: 'jpg', fallback: "no_image.jpg", class: "rounded-circle" %>
+                  <%= current_user.name %>
+                </p>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <p class="user-head-path">ログアウト</p>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 管理人がログイン時 -->
+        <% elsif admin_signed_in? %>
+        <p>
+          <%= link_to admin_path do %>
+            <p class="head-logo"><%= image_tag 'Rev.com-logo-2.png', :size => "100x100" %></p>
+          <% end %>
+        </p>
+        <div class="collapse navbar-collapse justify-content-end ">
+          <ul class="head-path-box">
+            <li class="nav-item">
+              <%= link_to admin_comics_search_path do %>
+                <p class="admin-head-path">コミック新規登録</p>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to admin_comics_path do %>
+                <p class="admin-head-path">コミック一覧</p>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to admin_categories_path do %>
+                <p class="admin-head-path">カテゴリー登録/一覧</p>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to destroy_admin_session_path, method: :delete do %>
+                <p class="admin-head-path">ログアウト</p>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+
+        <!-- どちらもログインしていない時 -->
+        <% else %>
+        <p>
+          <%= link_to root_path do %>
+            <p class="head-logo"><%= image_tag 'Rev.com-logo-2.png', :size => "100x100" %></p>
+          <% end %>
+        </p>
+        <div class="collapse navbar-collapse justify-content-end ">
+          <ul class="head-path-box">
+            <li class="nav-item">
+              <%= link_to homes_about_path do %>
+                <p class="default-head-path">Rev.comとは？</p>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to new_user_registration_path do %>
+                <p class="default-head-path">新規登録</p>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to new_user_session_path do %>
+               <p class="default-head-path">ログイン</p>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+
+        <% end %>
+
+      </ul>
+
+    </div>
+
+  </nav>
+
+</header>
+<div class="row p-0 m-0">
+  <div class="head-search col-lg-12 p-0 m-0">
+    <% if admin_signed_in? %>
+      <!--%= render 'admin/homes/search_form' %>-->
+    <% else %>
+      <%= render 'public/users/search_form' %>
+    <% end %>
+  </div>
+</div>

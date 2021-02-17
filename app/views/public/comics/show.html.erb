@@ -1,0 +1,114 @@
+<div class="container">
+  <div class="row comic-show-box">
+    <!--コミック画像-->
+    <div class="col-lg-4">
+      <p class="comic-show-img"><%= image_tag @comic.image_url, size: "220x300", class: "rounded mt-5" %></p>
+    </div>
+    <!--コミック詳細-->
+    <table class="table col-lg-6">
+      <tr>
+        <!--タイトル-->
+        <td><%= @comic.title %></td>
+      </tr>
+      <tr>
+        <!--作者-->
+        <td><%= @comic.author %></td>
+      </tr>
+      <tr>
+        <!--出版社-->
+        <td><%= @comic.publisher %></td>
+      </tr>
+      <tr>
+        <!--カテゴリー-->
+        <td><%= @comic.category.name %></td>
+      </tr>
+      <tr>
+        <!--ストーリー-->
+        <td><%= @comic.item_caption %></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="row rev-tag-box">
+    <div class="tag-box col-lg-4">
+      <!--タグリスト-->
+      <div class="tag-list">
+        <p><i class="fas fa-tags"></i>　　</p>
+        <% @tags.each do |tag| %>
+          <p class="tag-item">
+            <%= link_to tag_search_path(tag_name: tag.tag_name) do %>
+              #<%= tag.tag_name %>
+            <% end %>
+            <% if tag.user == current_user %>
+              <%= link_to  comic_tag_path(tag,comic_id: @comic.isbn), method: :delete do %>
+                <i class="fas fa-backspace" style="color: red;"></i>
+              <% end %>
+            <% end %>
+          </p>
+        <% end %>
+      </div>
+
+      <!--タグ入力フォーム-->
+      <div>
+        <%= form_with model: @tag, url: comic_tags_path(comic_id: @comic.isbn), method: :post, local: true do |f| %>
+          <%= f.label "タグ追加" %>
+          <%= f.text_field :tag_name, rows: '4', placeholder: "タグをここに" %>
+          <%= f.submit "追加", class: "btn btn-outline-secondary btn-sm" %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="review-box col-lg-8" data-turbolinks="false">
+      <div class="rate-avg-box">
+        <!--レビュー平均-->
+        <%= render 'public/comics/avg_star', comic: @comic %>
+
+        <p><%= @comic.avg_rate %>点（<%= @comic.reviews.count %>件のレビュー）</p>
+      </div>
+
+      <p class="review-btn">
+        <%= link_to "レビューを書く", new_comic_review_path(@comic.isbn), class: "btn btn-outline-secondary" %>
+      </p>
+
+      <!--レビュー一覧-->
+      <% if @reviews.present? %>
+        <% @reviews.each do |review| %>
+          <div class="reviews row">
+            <div class="col-sm-4">
+              <%= link_to review.user do %>
+                <%= attachment_image_tag review.user, :profile_image, size: "50x50", format: 'jpg', fallback: "no_image.jpg", class: "rounded-circle" %>
+              <% end %>
+              <p class="review-user-path">
+                <%= link_to user_path(review.user.id) do %>
+                  <p><%= review.user.name %></p>
+                <% end %>
+              </p>
+              <p class="date"><%= review.created_at.strftime('%Y/%m/%d') %></p>
+            </div>
+            <div class="col-md-7 mb-3">
+              <div class="reviews-content">
+
+                <h4 class="mb-3">評価：<%= review.rate %>点</h4>
+
+                <!--星評価-->
+                <%= render 'public/reviews/rev_star', review: review %>
+
+
+              </div>
+              <div class="edit-btn">
+                <% if current_user == review.user %>
+                  <%= link_to '編集', edit_comic_review_path(@comic,review), method: :get, class:'btn btn-outline-secondary btn-sm' %>
+                  <%= link_to '削除', comic_review_path(@comic,review), method: :delete, class:'btn btn-outline-danger btn-sm' %>
+                <% end %>
+              </div>
+            </div>
+
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="category-list">
+  <%= render 'layouts/category', categories: @categories %>
+</div>

@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="user-box row">
+    <div class="col-lg-4">
+      <div>
+        <%= attachment_image_tag @user, :profile_image, size: "200x200", format: 'jpg', fallback: "no_image.jpg", class: "rounded-circle" %>
+      </div>
+      <h5>
+        <%= @user.name %>
+      </h5>
+      <!--フォローボタン-->
+      <div >
+        <%= render 'public/relationships/follow_button', user: @user %>
+      </div>
+      <!--フォロー/フォロワー一覧-->
+      <div>
+        <div><%= link_to "フォロー: #{@user.followings.count} ", relationships_follows_path(id: @user.id) %></div>
+        <div><%= link_to "フォロワー: #{@user.followers.count} ", relationships_followers_path(id: @user.id) %></div>
+      </div>
+    </div>
+    <div class="col-lg-8">
+      <div class="introduction">
+        <%= @user.introduction %>
+      </div>
+
+      <!--ログインユーザーのみに表示-->
+      <% if current_user.id == @user.id %>
+        <div class="mypage-link">
+          <%= link_to edit_user_path(current_user) do %>
+            <p>プロフィールを編集する</p>
+          <% end %>
+        </div>
+        <div class="mypage-link">
+          <%= link_to "パスワードを変更する", edit_user_registration_path %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <!--レビューしたコミック一覧-->
+  <div class="row user-page-border">
+    <h5 class=" col-lg-12">レビューしたコミック</h5>
+  </div>
+  <div class="user-comic-box row">
+    <% @reviews.each do |review| %>
+      <div class="user-rev-comics">
+        <%= link_to review.comic do %>
+          <div class="reviews-comic">
+            <p><%= image_tag review.comic.image_url, :size => "110x150" %></p>
+            <p class="comic-path"><%= review.comic.title %></p>
+          </div>
+        <%end %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<!--ゲストログイン-->
+<%= form_with model: @admin, url: admin_session_path, method: :post, local: true do |f| %>
+  <%= f.hidden_field :email ,value: "rev@comic.com" %>
+  <%= f.hidden_field :password ,value: "qazxsw" %>
+  <%= f.submit "ゲストログイン", class: "btn btn-outline-primary" %>
+<% end %>

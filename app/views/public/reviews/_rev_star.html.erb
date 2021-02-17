@@ -1,0 +1,25 @@
+  <!--星評価-->
+  <div id="star-rate-<%= review.id %>" class="rate-stars"></div>
+    <script>
+      $('#star-rate-<%= review.id %>').raty({
+        size:     36,
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn :  '<%= asset_path('star-on.png') %>',
+        starHalf: '<%= asset_path('star-half.png') %>',
+        half:     true,
+        readOnly: true,
+        score:    <%= review.rate %>,
+      });
+    </script>
+  <!--/星評価-->
+
+  <!--レビュー内容-->
+  <p>
+    <%= link_to comic_review_path(comic_id: review.comic.isbn, id: review.id) do %>
+      <p class="review-body-path"><%= review.review %></p>
+    <% end %>
+  </p>
+  <!--コメント数-->
+  <p>
+    <i class="far fa-comment-alt"><%= review.comments.count %></i>
+  </p>

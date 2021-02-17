@@ -1,0 +1,33 @@
+// Place all the styles related to the admin/Categories controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.text-center {
+  text-align: center;
+}
+
+.form-btn {
+  text-align: right;
+}
+
+.category-title {
+  font-size: 30px;
+}
+
+.category-index-title {
+  font-size: 30px;
+}
+
+.category-table-box {
+  height: 30px;
+}
+
+.category-path {
+  font-size: 20px;
+  color: #333333;
+}
+
+.category-path:hover {
+  color: #FF8C00;
+  text-decoration: underline;
+}

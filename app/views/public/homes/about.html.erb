@@ -1,0 +1,51 @@
+<div class="about-all-box container">
+  <div class="row mt-5">
+    <div class="col-lg-12">
+      <h3 class="pr-10 mr-10">Rev.comとは？</h3>
+      <div class="about-top-img"><%= image_tag 'PC-Rev-com.jpg', size: "1000x473" %></div>
+      <div class="about-main-visual row">
+        <div class="about-box-second col-md-8">
+          <div class="about-text-1 row">「 Rev.com 」とは、漫画が好きな人のためのレビューアプリです。</div>
+          <div class="row" style="margin: 40px 0 20px 0;"><%= image_tag 'review-1.png', size: "450x320" %></div>
+        </div>
+      </div>
+      <div class="about-list row m-0" id="about-border">
+        <p class="about-text-2">こんな人に利用しても欲しい！！</p>
+        <div class="row m-0">
+          <div class="about-item col-sm-3">
+            <div><%= image_tag 'loving.png', :size => "250x200" %></div>
+            <p>漫画が好きで好きでたまらない人！</p>
+          </div>
+          <div class="about-item col-sm-3">
+            <div><%= image_tag 'recommend.png', :size => "250x200" %></div>
+            <p>好きな漫画をみんなに読んでもらいたいという感情を持っている人！</p>
+          </div>
+          <div class="about-item col-sm-3">
+            <div><%= image_tag 'search.png', :size => "250x200" %></div>
+            <p>読みたい漫画を探している人！</p>
+          </div>
+        </div>
+      </div>
+      <div class="about-list row">
+        <p class="about-text-2">こんな目的で利用して欲しい！</p>
+        <div class="row m-0">
+          <div class="about-item col-sm-3">
+            <div><%= image_tag 'review-3.png', :size => "250x200" %></div>
+            <p>自分の読んだ漫画のレビューを投稿することで、みんなに知ってもらい、興味を持ってもらいたい時。</p>
+          </div>
+          <div class="about-item col-sm-3">
+            <div><%= image_tag 'review-2.png', :size => "250x200" %></div>
+            <p>自分の読んだ漫画のレビューを投稿することで、みんなに知ってもらい、興味を持ってもらいたい時。</p>
+          </div>
+          <div class="about-item col-sm-3">
+            <div><%= image_tag 'book-2.png', :size => "250x200" %></div>
+            <p>レビューを参考に、面白そうな漫画がないか情報を集めるたい時。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="category-list">
+  <%= render 'layouts/category', categories: @categories %>
+</div>

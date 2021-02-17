@@ -1,0 +1,23 @@
+<!-- 管理人のTopページ -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 top-box">
+      <h2 class="top-title">管理者用</h2>
+      <div>
+        <%= link_to admin_comics_search_path do %>
+          <p class="top-path">コミック新規登録</p>
+        <% end %>
+      </div>
+      <div>
+        <%= link_to admin_comics_path do %>
+          <p class="top-path">コミック一覧</p>
+        <% end %>
+      </div>
+      <div>
+        <%= link_to admin_categories_path do %>
+          <p class="top-path">カテゴリー登録/一覧</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+ </div>

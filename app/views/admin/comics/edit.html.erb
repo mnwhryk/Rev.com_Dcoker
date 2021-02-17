@@ -1,0 +1,49 @@
+<div class="container-fluid comic-page-box">
+  <div class="row">
+    <div class="col-lg-4">
+      <p><%= image_tag @comic.image_url, size: "370x500" %></p>
+    </div>
+
+      <!-- コミック編集フォーム -->
+  <%= form_with model: @comic, url: admin_comic_update_path(@comic.isbn), method: :patch, local: true do |f| %>
+    <div class="col-lg-6">
+      <table class="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>コミック情報編集</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= f.label "タイトル" %></td>
+              <td><%= f.text_field :title, class: "form-control" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label "作者" %></td>
+              <td><%= f.text_field :author, class: "form-control" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label "出版社" %></td>
+              <td><%= f.text_field :publisher, class: "form-control" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label "ストーリー" %></td>
+              <td><%= f.text_area :item_caption, class: "form-control", :size => "100x5" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label "カテゴリー" %></td>
+              <td><%= f.collection_select(:category_id, Category.all, :id, :name, prompt: "--選択してください--") %></td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td></td>
+              <td><%= f.submit "更新する", class: "btn btn-outline-secondary btn-lg" %></td>
+            </tr>
+          </tfoot>
+      </table>
+    </div>
+  <% end %>
+  </div>
+</div>

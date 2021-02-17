@@ -1,0 +1,26 @@
+<div class ="container" data-turbolinks="false">
+  <div class="row">
+    <div class="col-lg-12">
+      <!--コミック一覧-->
+      <div class="comic-index">
+        <% @comics.each do |comic| %>
+          <div class="comic-index-item">
+            <%= link_to comic_path(comic) do %>
+                <div><%= image_tag comic.image_url, :size => "145x200" %></div>
+                <p><%= comic.title %></p>
+            <% end %>
+
+            <div>
+             <%= render 'public/comics/avg_star', comic: comic %>
+            </div>
+            <p class="rate-text"><%= comic.avg_rate %></p>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="category-list">
+  <%= render 'layouts/category', categories: @categories %>
+</div>

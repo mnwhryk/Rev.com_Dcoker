@@ -1,0 +1,16 @@
+<div id="like-<%= review.id %>">
+  <!--いいね機能-->
+  <% if review.liked_by?(current_user) %>
+    <p>
+      <%= link_to comic_review_likes_path(review_id: review), method: :delete, remote: true do %>
+        <p>❤<%= review.likes.count %></p>
+      <% end %>
+    </p>
+  <% else %>
+    <p>
+      <%= link_to comic_review_likes_path(review_id: review), method: :post, remote: true do %>
+        <p style="color: #FF9872;">︎♡<%= review.likes.count %></p>
+      <% end %>
+    </p>
+  <% end %>
+</div>

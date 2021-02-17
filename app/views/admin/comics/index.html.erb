@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 comic-page-box">
+      <h3 class="comic-index-title">コミック一覧</h3>
+      <!--新規登録遷移-->
+      <div class="comic-path-box">
+        <%= link_to admin_comics_search_path do %>
+          <p class="comic-path">コミック新規登録へ</p>
+        <% end %>
+      </div>
+
+      <!--コミック一覧-->
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>カテゴリー</th>
+            <th>タイトル</th>
+            <th>作者</th>
+            <th>出版社</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @comics.each do |comic| %>
+            <tr>
+              <td>
+                <%= link_to admin_comic_path(comic.isbn) do %>
+                  <%= image_tag comic.image_url, size: "44x60" %>
+                <% end %>
+              </td>
+              <td><%= comic.category.name %></td>
+              <td>
+                <%= link_to admin_comic_path(comic.isbn) do %>
+                  <%= comic.title %>
+                <% end %>
+              </td>
+              <td><%= comic.author %></td>
+              <td><%= comic.publisher %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

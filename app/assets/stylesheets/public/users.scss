@@ -1,0 +1,60 @@
+// Place all the styles related to the public/Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-box {
+    padding-top: 30px;
+    margin: 40px 0;
+    border-top: 1px solid #bbb;
+}
+
+.user-page-border {
+    padding-top: 50px;
+    margin: 30px 0;
+    border-top: 1px solid #bbb;
+}
+
+.user-rev-comics {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 15px 20px 15px;
+}
+
+.user-comic-box {
+    padding: 20px 0 0;
+    margin: 20px 0 0;
+}
+
+.user-btn {
+    text-align: right;
+}
+
+.user-img-edit {
+  margin: 20px 0;
+}
+
+.unsub-path {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #bbb;
+}
+
+.unsub-box {
+    text-align: center;
+}
+
+.unsub-text {
+    color: red;
+}
+
+.wd-btn {
+    margin: 20px;
+}
+
+.introduction {
+    margin: 30px 0;
+    word-wrap: break-word;
+}
+
+.mypage-link {
+    text-align: right;
+}

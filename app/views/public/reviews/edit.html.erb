@@ -1,0 +1,52 @@
+<% if current_user == @review.user %>
+  <div class="container">
+    <div class="row rev-edit-box">
+      <div class="col-lg-10">
+        <!--エラーメッセージ-->
+        <div style="font-size: 20px;">
+          <%= render "layouts/error_messages", model: @review %>
+        </div>
+        <!--レビュー編集フォーム-->
+        <%= form_with model: @review, url: comic_review_path(@review.id), method: :patch, local: true do |f| %>
+
+          <!--評価-->
+          <div class="review-group" id="star">
+            <h4><%= f.label "評価" %></h4>
+            <p><%= f.hidden_field :rate, id: :review_star %></p>
+          </div>
+
+          <!--評価javascript-->
+          <script>
+            $('#star').raty({
+              size:      36,
+              starOff:   '<%= asset_path('star-off.png') %>',
+              starOn:    '<%= asset_path('star-on.png') %>',
+              starHalf:  '<%= asset_path('star-half.png') %>',
+              scoreName: 'review[rate]',
+              half:      true,
+            });
+          </script>
+
+          <!--レビュー内容-->
+          <div class="review-group">
+            <h4><%= f.label "レビュー" %></h4>
+            <p><%= f.text_area :review, class: "form-control", :size => "70x7" %></p>
+          </div>
+
+          <!--確認ボタン-->
+          <div class="review-group">
+            <p class="review-btn">
+              <%= f.submit "更新する", class: "btn btn-outline-secondary btn-lg" %>
+            </p>
+          </div>
+
+        <% end %>
+        <!--/入力フォーム-->
+
+      </div>
+    </div>
+  </div>
+<% end %>
+<div class="category-list">
+  <%= render 'layouts/category', categories: @categories %>
+</div>

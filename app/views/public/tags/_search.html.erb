@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div>
+      
+      <h2>タグ検索一覧</h2>
+      
+      <!--タグリスト-->
+      <% @tag_list.each do |list| %>
+        <div>
+          <%= link_to tag_comics_path(tag_id: list.id) do %>
+            <%= tag_name %>
+          <% end %>
+        </div>
+      <% end %>
+      
+      <!--タグで絞り込んだコミック一覧-->
+      <div>
+        <p><strong><%= @tag.tag_name %></strong>のついたコミック一覧</p>
+      </div>
+      <div>
+        <% @comics.each do |comic| %>
+          <%= link_to comic.name, comic 
+        <% end %>
+      </div>
+      
+    </div>
+  </div>
+</div>

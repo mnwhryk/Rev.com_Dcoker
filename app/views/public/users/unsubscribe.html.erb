@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="unsub-box row">
+    <div class="col-lg-10">
+      <h3>本当に<span class="unsub-text">退会</span>しますか？</h3>
+      <p class="wd-text">
+        <p>退会すると、ユーザー登録情報や</p>
+        <p>これまでのレビュー履歴、フォロー・フォロワー一覧などが閲覧できなくなります。</p>
+        <p>退会する場合は、「<span class="unsub-text">退会する</span>」をクリックしてください。</p>
+      </p>
+      <div class="wd-btn">
+        <%= link_to "やっぱり、退会しない", user_path(current_user.id), class: "btn btn-outline-primary btn-lg"   %>
+      </div>
+      <div class="wd-btn">
+        <% if user_signed_in? && @user.id == current_user.id %>
+          <%= link_to "それでも、退会する", user_withdraw_path(current_user.id), method: :patch, "data-confirm" => "本当に退会しますか？", class: "btn btn-outline-danger btn-lg" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

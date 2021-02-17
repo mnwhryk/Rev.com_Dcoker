@@ -1,0 +1,54 @@
+// Place all the styles related to the public/Reviews controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.review-user-path, .review-body-path {
+  color: #333333;  //リンクの色変え
+}
+
+.review-user-path:hover, .review-body-path:hover {
+  color: #FF8C00;    //リンクの色変え
+  text-decoration: underline;
+}
+
+.review-user, .edit-btn {
+  text-align: center;
+}
+
+.review-user-path {
+  margin: 10px 20px 10px 15px;
+}
+
+.edit-btn {
+  margin-top: 50px;
+}
+
+.comic-path {
+  color: #333333;  //リンクの色変え
+}
+
+.comic-path:hover {
+  color: #FF8C00;    //リンクの色変え
+  text-decoration: underline;
+}
+
+.rev-body {
+  margin-top: 30px;
+}
+
+.comments {
+  margin: 1px 1px 20px 1px;
+  border-bottom: 1px solid #bbb;
+}
+
+.review-group {
+  margin-bottom: 30px;
+}
+
+.review-btn {
+  text-align: right;
+}
+
+#comments_area {
+  background: #ddd;
+}

@@ -1,0 +1,17 @@
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<div id="slider">
+  <% random.each do |comic| %>
+    <div class="comic-slider-item">
+      <%= link_to comic_path(comic) do %>
+          <div><%= image_tag comic.image_url, :size => "170x250" %></div>
+          <p><%= comic.title %></p>
+      <% end %>
+
+      <div>
+        <%= render 'public/comics/avg_star', comic: comic %>
+      </div>
+      <p class="rate-text"><%= comic.avg_rate %></p>
+    </div>
+  <% end %>
+</div>
+

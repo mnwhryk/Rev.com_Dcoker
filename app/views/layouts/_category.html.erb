@@ -1,0 +1,13 @@
+<div class="category-area container">
+  <div class="row m-0">
+    <div class="category-box col-lg-12 m-3">
+      <% categories.each do |category| %>
+        <%= link_to search_comics_path(id: category.id) do %>
+          <div class="category-name card">
+            <div class="category-text"><%= category.name %></div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

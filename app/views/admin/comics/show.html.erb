@@ -1,0 +1,59 @@
+<div class="container-fluid comic-page-box">
+  <div class="row">
+    <!--コミック画像-->
+    <div class="col-lg-4">
+      <%= image_tag @comic.image_url, size: "370x500" %>
+    </div>
+
+    <!--コミック詳細-->
+    <div class="col-lg-6">
+      <table class="table">
+        <thead>
+          <tr>
+            <th width="120px"></th>
+            <th>コミック情報</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>タイトル</td>
+            <td><%= @comic.title %></td>
+          </tr>
+          <tr>
+            <td>作者</td>
+            <td><%= @comic.author %></td>
+          </tr>
+          <tr>
+            <td>出版社</td>
+            <td><%= @comic.publisher %></td>
+          </tr>
+          <tr>
+            <td>カテゴリー</td>
+            <td><%= @comic.category.name %></td>
+          </tr>
+          <tr>
+            <td>ストーリー</td>
+            <td>
+              <%= @comic.item_caption %>
+            </td>
+          </tr>
+        <tfoot>
+          <tr>
+            <td></td>
+            <td>
+              <!--編集ボタン-->
+              <p class="comic-btn">
+                <%= link_to "編集する", admin_comic_edit_path(@comic.isbn), class: "btn btn-outline-secondary btn-lg" %>
+              </p>
+              <!--削除ボタン-->
+              <p class="comic-btn">
+                <%= link_to "削除する", admin_comic_destroy_path(@comic.isbn), method: :delete, class: "btn btn-outline-danger btn-lg" %>
+              </p>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+
+    </div>
+  </div>
+</div>

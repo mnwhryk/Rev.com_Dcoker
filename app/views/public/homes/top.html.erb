@@ -1,0 +1,42 @@
+<div class="main-visual container-fluid">
+  <p class="back-img">
+    <h4>漫画好きのためのアプリ</h4>
+    <p>
+      <p><%= image_tag 'Rev.com-logo-2.png', :size => "200x200" %></p>
+      <h4>Rev.com</h4>
+
+    </p>
+  </p>
+</div>
+
+<div class="container" data-turbolinks="false">
+  <div class="review-slider-title">
+    <h3  class="">みんなのレビュー</h3>
+  </div>
+  <div class="row m-4">
+    <div class="review-slider-box col-lg-12">
+        <div class="review-slider">
+          <%= render 'public/homes/review_slider', revdom: @revdom, comic: @comic %>
+        </div>
+    </div>
+    <div class="comic-slider-box col-lg-12">
+      <h3 class="comic-slider-title">おすすめ! コミック</h3>
+
+        <div class="comic-slider">
+          <%= render 'public/homes/slider', random: @random %>
+        </div>
+
+    </div>
+    <div class="col-lg-12">
+      <div class="top-comic-link">
+        <%= link_to comics_path do %>
+          <p class="top-comic-path">コミック一覧へ</p>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="category-list">
+  <%= render 'layouts/category', categories: @categories %>
+</div>

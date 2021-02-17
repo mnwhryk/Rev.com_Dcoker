@@ -1,0 +1,29 @@
+<div class="comic-index">
+  <% comics.each do |comic| %>
+    <div>
+      <%= link_to comic_path(comic) do %>
+          <div><%= image_tag comic.image_url, :size => "145x200" %></div>
+          <p><%= comic.title %></p>
+      <% end %>
+
+      <div>
+        <p class="star-rating-front" style="width: <%= comic.review_rate_percentage %>"></p>
+        <div id="avg_rate-<%= comic.isbn %>"></div>
+
+        <script>
+            $('#avg_rate-<%= comic.isbn %>').raty({
+              size:     36,
+              starOff:  '<%= asset_path('star-off.png') %>',
+              starOn :  '<%= asset_path('star-on.png') %>',
+              starHalf: '<%= asset_path('star-half.png') %>',
+              half:     true,
+              readOnly: true,
+              score:    <%= comic.avg_rate.to_f.round(1) %>
+            });
+        </script>
+
+      </div>
+      <p><%= comic.avg_rate %></p>
+    </div>
+  <% end %>
+</div>

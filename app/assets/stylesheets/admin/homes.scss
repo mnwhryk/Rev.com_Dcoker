@@ -1,0 +1,22 @@
+// Place all the styles related to the admin/Homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.top-box {
+  text-align: center;
+}
+
+.top-title {
+  margin: 30px;
+}
+
+.top-path {
+  font-size: 30px;
+  color: #333333;
+  margin: 20px;
+}
+
+.top-path:hover {
+  color: #FF8C00;
+  text-decoration: underline;
+}

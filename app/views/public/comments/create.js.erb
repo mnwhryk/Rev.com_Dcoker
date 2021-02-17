@@ -1,0 +1,2 @@
+$("#comments_<%= @review.id %>").html("<%= j (render 'public/comments/comment', review: @review, comment: @comment) %>");
+$("text_area").val("");

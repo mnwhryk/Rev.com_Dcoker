@@ -1,0 +1,102 @@
+// Place all the styles related to the public/Comics controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// .star-rating-front {
+//   overflow: hidden;
+// }
+
+.comic-show-box {
+  margin: 100px 0 20px 0;
+}
+
+.comic-show-img {
+  position: absolute;
+  bottom: 3px;
+  // padding-right: 60px;
+  // border-right: 1px solid #666666;
+}
+
+.rev-tag-box {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.tag-box {
+  padding: 10px;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag-item {
+  margin-right: 8px;
+}
+
+.review-box {
+  background: #eeeeee;
+}
+
+.rate-avg-box {
+  text-align: center;
+}
+
+.reviews {
+  margin: 50px 1px 20px 60px;
+  padding: 0 0 20px 20px;
+  border-bottom: 1px solid #bbb;
+  width: 100%;
+}
+
+.review-btn {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #bbb;
+  width: 100%;
+}
+
+.review-user-path {
+  margin-right: 50px;
+}
+
+.review-user-path,.review-body-path {
+  color: #333333;
+  margin-left: 10px;
+}
+
+.review-user-path:hover, .review-body-path:hover {
+  color: #FF8C00;
+  text-decoration: underline;
+}
+
+.reviews-content {
+  margin-left: 20px;
+}
+
+.edit-btn {
+  text-align: right;
+}
+
+.username-box, .rev-list-box {
+  padding-bottom: 20px;
+}
+
+.date {
+  // margin-right: 300px;
+}
+
+.comic-index {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.comic-index-item {
+  margin: 0 20px 20px 20px;
+}
+
+.rate-text {
+  font-size: 24px;
+}
