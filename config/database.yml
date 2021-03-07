@@ -20,6 +20,10 @@ default: &default
 development:
   <<: *default
   database: db/development.mysql2
+  username: root
+  password: password
+  host: db
+  socket: /tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -27,6 +31,10 @@ development:
 test:
   <<: *default
   database: db/test.mysql2
+  username: root
+  password: password
+  host: db
+  socket: /tmp/mysql.sock
 
 production:
   <<: *default
@@ -35,6 +43,7 @@ production:
   encoding: utf8mb4
   charset: utf8mb4
   collection: utf8mb4_general_ci
+  username: root
   host: <%= ENV['DB_HOST'] %>
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
