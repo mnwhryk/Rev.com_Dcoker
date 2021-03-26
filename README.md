@@ -2,7 +2,7 @@
 
 # Rev.com
 ![Rev  com-logo-2](https://user-images.githubusercontent.com/73174207/105358506-981f2000-5c39-11eb-8c66-f21406bff1f7.png) <br />
-http://rev-com.work 
+http://rev-com.work <br />
 管理者画面にはurlにadmins/sign_inを追加し、ゲストログインをご利用ください。
 
 ## サイト概要
