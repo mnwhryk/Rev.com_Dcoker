@@ -46,8 +46,8 @@ ER図　https://user-images.githubusercontent.com/73174207/109391730-f091bd80-79
 
 ## 使用素材
 
-背景画像 : https://www.stockio.com/free-vector/abstract-geometric-background<br />
-イラスト画像 : https://undraw.co/illustrations<br />
+背景画像 : https://www.stockio.com/free-vector/abstract-geometric-background <br />
+イラスト画像 : https://undraw.co/illustrations <br />
 コミック画像 : Rakuten API　( 楽天ブックス使用 )
 
 ## Topページ
