@@ -13,5 +13,5 @@ COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
 RUN gem install bundler
 RUN bundle install
-＃COPY . /app
+COPY . /app
 # CMD
